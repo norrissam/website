@@ -1,0 +1,186 @@
+:root {
+  --text: #1a1a1a;
+  --muted: #5a5a5a;
+  --accent: #1a4f8b;
+  --rule: #e2e2e2;
+  --bg: #fdfdfc;
+  --max: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Source Serif 4", Charter, "Iowan Old Style", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 1.25rem 0;
+  margin-bottom: 2.5rem;
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+.brand {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.005em;
+}
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 1rem;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav a:hover {
+  color: var(--text);
+}
+.nav a.active {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
+
+/* Sections */
+main section {
+  margin-bottom: 3rem;
+}
+h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  margin: 0 0 1.25rem 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.005em;
+  margin: 2rem 0 0.75rem 0;
+}
+
+/* Intro */
+.intro {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+}
+.intro p {
+  margin-top: 0;
+}
+.portrait {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 170px;
+  height: auto;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+}
+.contact {
+  grid-column: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+.contact li {
+  margin: 0.25rem 0;
+  color: var(--muted);
+}
+
+/* Paper lists */
+.papers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.papers li {
+  margin: 0 0 1.25rem 0;
+  text-indent: 0;
+}
+.papers li a:first-child {
+  font-weight: 500;
+}
+
+/* Lecture list: each item is a single link, so don't bold the whole line */
+.lectures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lectures li {
+  margin: 0.4rem 0;
+}
+.lectures li a {
+  font-weight: 400;
+}
+.extras {
+  display: block;
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-top: 0.15rem;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26, 79, 139, 0.25);
+}
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  .intro {
+    grid-template-columns: 1fr;
+  }
+  .portrait {
+    grid-column: 1;
+    grid-row: auto;
+    width: 130px;
+    margin-bottom: 0.5rem;
+  }
+  .contact {
+    grid-column: 1;
+  }
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  h2 { font-size: 1.25rem; }
+}
